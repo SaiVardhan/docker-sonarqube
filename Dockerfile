@@ -6,6 +6,8 @@ RUN apt-get update && apt-get clean ### Sonar version 5.1 - timestamp
 
 RUN apt-get install -y --force-yes sonar=5.1
 
+RUN sed -i 's/#sonar.web.context=/sonar.web.context=\/sonar/g' /opt/sonar/conf/sonar.properties
+
 COPY assets/init /app/init
 RUN chmod 755 /app/init
 
